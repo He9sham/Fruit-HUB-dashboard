@@ -5,14 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key, required this.appRouter});
-    final AppRouter appRouter;
+  final AppRouter appRouter;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.dashBoard,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

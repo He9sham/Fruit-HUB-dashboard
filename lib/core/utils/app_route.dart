@@ -1,4 +1,3 @@
-
 import 'package:commerce_hub_dashboard/core/utils/route.dart';
 import 'package:commerce_hub_dashboard/features/dashboard/view/dashboard_view.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ class AppRouter {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-      case Routes.splashScreen:
+      case Routes.dashBoard:
         return MaterialPageRoute(
           builder: (_) => const DashboardView(),
         );
