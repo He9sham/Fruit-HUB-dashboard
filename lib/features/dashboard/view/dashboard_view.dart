@@ -1,4 +1,5 @@
 import 'package:commerce_hub_dashboard/core/theming/styles.dart';
+import 'package:commerce_hub_dashboard/core/utils/route.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_buttom.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,9 @@ class DashboardView extends StatelessWidget {
             Center(
               child: AppTextButton(
                 buttonText: 'Add Data',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.addProduct);
+                },
                 textStyle: Styles.textbuttom16White,
               ),
             ),
