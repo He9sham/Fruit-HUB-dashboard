@@ -139,7 +139,11 @@ class _AddProductState extends State<AddProduct> {
                     },
                     backgroundColor: ColorsManager.lighterGray),
                 const SizedBox(height: 30),
-                ImageField(),
+                ImageField(
+                  onImageSelected: (value) {
+                    image = value;
+                  },
+                ),
                 const SizedBox(height: 50),
               ],
             ),
