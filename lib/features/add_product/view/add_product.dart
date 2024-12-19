@@ -1,6 +1,8 @@
 import 'dart:io';
+
 import 'package:commerce_hub_dashboard/core/theming/colors.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_form_field.dart';
+import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
 import 'package:flutter/material.dart';
 
 class AddProduct extends StatefulWidget {
@@ -13,8 +15,8 @@ class AddProduct extends StatefulWidget {
 class _AddProductState extends State<AddProduct> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  
-   late String name, code, description;
+
+  late String name, code, description;
   late num price, expirationMonths, numberOfCalories, unitAmount;
   File? image;
   bool isFeatured = false;
@@ -136,6 +138,9 @@ class _AddProductState extends State<AddProduct> {
                       }
                     },
                     backgroundColor: ColorsManager.lighterGray),
+                const SizedBox(height: 30),
+                ImageField(),
+                const SizedBox(height: 50),
               ],
             ),
           ),
