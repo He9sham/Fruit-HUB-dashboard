@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:commerce_hub_dashboard/core/theming/colors.dart';
+import 'package:commerce_hub_dashboard/core/theming/styles.dart';
+import 'package:commerce_hub_dashboard/core/widgets/app_text_buttom.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_form_field.dart';
+import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/custom_app_bar.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/is_featured_check_box.dart';
@@ -115,9 +118,9 @@ class _AddProductState extends State<AddProduct> {
                   const SizedBox(height: 20),
                   AppTextFormField(
                       onSaved: (data) {
-                        code = data!;
+                        code = data!.toLowerCase();
                       },
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.text,
                       hintText: 'Product Code',
                       validator: (data) {
                         data = data!.trim();
@@ -152,12 +155,43 @@ class _AddProductState extends State<AddProduct> {
                       image = value;
                     },
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 30),
+                  AppTextButton(
+                    buttonText: 'Add Product',
+                    onPressed: () {
+                      if (image != null) {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                        }
+                        AddProductInput input = AddProductInput(
+                          image: image!,
+                          isFeatured: isFeatured,
+                          code: code,
+                          name: name,
+                          description: description,
+                          price: price.toDouble(),
+                          imageUrl: '',
+                        );
+                      } else {
+                        showError(context);
+                      }
+                    },
+                    textStyle: Styles.textbuttom16White,
+                  ),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void showError(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Please add product image'),
       ),
     );
   }
