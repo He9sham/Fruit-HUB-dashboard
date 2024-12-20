@@ -71,9 +71,13 @@ class _ImageFieldState extends State<ImageField> {
       final ImagePicker picker = ImagePicker();
       final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-      fileImage = File(image!.path);
+      if (image != null) {
+        fileImage = File(image.path);
+      } else {
+        isloading = false;
+        setState(() {});
+      }
       widget.onImageSelected(fileImage);
-      setState(() {});
     } on Exception {
       SnackBar(
         content: Text('Error picking image , please try again'),

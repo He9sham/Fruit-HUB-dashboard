@@ -106,7 +106,7 @@ class _AddProductState extends State<AddProduct> {
                     validator: (data) {
                       data = data!.trim();
                       if (data.isEmpty) {
-                        return 'Please enter product description';
+                        return 'Please enter Unit amont';
                       }
                     },
                     backgroundColor: ColorsManager.lighterGray),
