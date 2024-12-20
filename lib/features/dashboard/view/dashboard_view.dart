@@ -11,15 +11,14 @@ class DashboardView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: AppTextButton(
-                buttonText: 'Add Data',
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.addProduct);
-                },
-                textStyle: Styles.textbuttom16White,
-              ),
+            AppTextButton(
+              buttonText: 'Add Data',
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.addProduct);
+              },
+              textStyle: Styles.textbuttom16White,
             ),
           ],
         ),
