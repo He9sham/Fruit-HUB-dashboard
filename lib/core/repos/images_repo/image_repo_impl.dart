@@ -7,7 +7,6 @@ import 'package:dartz/dartz.dart';
 class ImageRepoImpl implements ImageRepo {
   @override
   Future<Either<Failure, String>> uploadImage(File path) {
-    
     throw UnimplementedError();
   }
 }
