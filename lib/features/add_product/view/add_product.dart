@@ -20,7 +20,6 @@ class AddProduct extends StatefulWidget {
 class _AddProductState extends State<AddProduct> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-
   late String name, code, description;
   late num price, expirationMonths, numberOfCalories, unitAmount;
   File? image;
@@ -158,20 +157,21 @@ class _AddProductState extends State<AddProduct> {
                   const SizedBox(height: 30),
                   AppTextButton(
                     buttonText: 'Add Product',
-                    onPressed: () {
+                    onPressed: () async {
                       if (image != null) {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
+
+                          AddProductInput input = AddProductInput(
+                            image: image!,
+                            isFeatured: isFeatured,
+                            code: code,
+                            name: name,
+                            description: description,
+                            price: price.toDouble(),
+                            imageUrl: '',
+                          );
                         }
-                        AddProductInput input = AddProductInput(
-                          image: image!,
-                          isFeatured: isFeatured,
-                          code: code,
-                          name: name,
-                          description: description,
-                          price: price.toDouble(),
-                          imageUrl: '',
-                        );
                       } else {
                         showError(context);
                       }
