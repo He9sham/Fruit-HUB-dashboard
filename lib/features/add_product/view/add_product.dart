@@ -161,7 +161,6 @@ class _AddProductState extends State<AddProduct> {
                       if (image != null) {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-
                           AddProductInput input = AddProductInput(
                             image: image!,
                             isFeatured: isFeatured,
