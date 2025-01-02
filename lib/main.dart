@@ -10,6 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
   await SupabaseStorageService.intiSupabase();
+  await SupabaseStorageService.createBuket('fruits_hub');
   await Firebase.initializeApp();
   setupGetit();
 

@@ -5,19 +5,22 @@ import 'package:commerce_hub_dashboard/core/theming/styles.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_buttom.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_form_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:commerce_hub_dashboard/features/add_product/logic/cubit/add_product_cubit.dart';
+import 'package:commerce_hub_dashboard/features/add_product/view/widgets/add_porducte_bloc.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/custom_app_bar.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/is_featured_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddProduct extends StatefulWidget {
-  const AddProduct({super.key});
+class AddProductBody extends StatefulWidget {
+  const AddProductBody({super.key});
 
   @override
-  State<AddProduct> createState() => _AddProductState();
+  State<AddProductBody> createState() => _AddProductBodyState();
 }
 
-class _AddProductState extends State<AddProduct> {
+class _AddProductBodyState extends State<AddProductBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String name, code, description;
@@ -170,6 +173,7 @@ class _AddProductState extends State<AddProduct> {
                             price: price.toDouble(),
                             imageUrl: '',
                           );
+                          context.read<AddProductCubit>().addproduct(input);
                         }
                       } else {
                         showError(context);
@@ -177,7 +181,7 @@ class _AddProductState extends State<AddProduct> {
                     },
                     textStyle: Styles.textbuttom16White,
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

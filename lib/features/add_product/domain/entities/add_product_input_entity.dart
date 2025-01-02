@@ -5,7 +5,7 @@ class AddProductInput {
   final String code;
   final String description;
   final double price;
-  final String imageUrl;
+   String imageUrl;
   final File image;
   final bool isFeatured;
   AddProductInput({

@@ -21,7 +21,7 @@ void setupGetit() {
   // Register ProductRepo with DatabaseService
   getIt.registerSingleton<ProductRepo>(
     ProductRepoImpl(
-      getIt.get<DatabaseService>(),
+      getIt.get<FireStoreService>(),
     ),
   );
 }

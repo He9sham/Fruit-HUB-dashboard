@@ -1,5 +1,5 @@
 import 'package:commerce_hub_dashboard/core/utils/route.dart';
-import 'package:commerce_hub_dashboard/features/add_product/view/add_product.dart';
+import 'package:commerce_hub_dashboard/features/add_product/view/add_product_view.dart';
 import 'package:commerce_hub_dashboard/features/dashboard/view/dashboard_view.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class AppRouter {
         );
       case Routes.addProduct:
         return MaterialPageRoute(
-          builder: (_) => const AddProduct(),
+          builder: (_) => const AddProductView(),
         );
       default:
         return null;

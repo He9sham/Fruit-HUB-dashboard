@@ -7,11 +7,26 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseStorageService implements StoarageService {
   static late Supabase _supabase;
+
   static intiSupabase() async {
     _supabase = await Supabase.initialize(
       url: profileUrl,
       anonKey: anonKey,
     );
+  }
+
+  static createBuket(bucketsname) async {
+    var buckets = await _supabase.client.storage.listBuckets();
+    bool isBucketExist = false;
+    for (var bucket in buckets) {
+      if (bucket.id == bucketsname) {
+        isBucketExist = true;
+        break;
+      }
+    }
+    if (!isBucketExist) {
+      await _supabase.client.storage.createBucket(bucketsname);
+    }
   }
 
   @override
@@ -21,6 +36,10 @@ class SupabaseStorageService implements StoarageService {
     var result = await _supabase.client.storage
         .from('fruits_hub')
         .upload('$path/$filename.$extentionName', file);
+    final String publicUrl = _supabase.client.storage
+        .from('fruits_hub')
+        .getPublicUrl('$path/$filename.$extentionName');
+
     return result;
   }
 }
