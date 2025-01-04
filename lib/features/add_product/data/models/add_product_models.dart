@@ -2,40 +2,64 @@ import 'dart:io';
 
 import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
 
-class AddProductModels 
-{
- final String name;
+class ProductModel {
+  final String name;
   final String code;
   final String description;
-  final double price;
-  final String imageUrl;
+  final num price;
   final File image;
   final bool isFeatured;
+  String? imageUrl;
+  final int expirationsMonths;
+  final bool isOrganic;
+  final int numberOfCalories;
+  final num avgRating = 0;
+  final num ratingCount = 0;
+  final int unitAmount;
+  final int sellingCount;
 
-  AddProductModels(this.name, this.code, this.description, this.price, this.imageUrl, this.image, this.isFeatured,);
+  ProductModel(
+      {required this.name,
+      required this.code,
+      required this.description,
+      required this.expirationsMonths,
+      required this.numberOfCalories,
+      required this.unitAmount,
+      required this.price,
+      this.sellingCount = 0,
+      required this.isOrganic,
+      required this.image,
+      required this.isFeatured,
+      this.imageUrl});
 
-  factory AddProductModels.fromEntity(AddProductInput addProductInput) {
-    return AddProductModels(
-      addProductInput.name,
-      addProductInput.code,
-      addProductInput.description,
-      addProductInput.price,
-      addProductInput.imageUrl,
-      addProductInput.image,
-      addProductInput.isFeatured,
-    );
-    
+  factory ProductModel.fromEntity(AddProductInput addProductInputEntity) {
+    return ProductModel(
+        name: addProductInputEntity.name,
+        code: addProductInputEntity.code,
+        description: addProductInputEntity.description,
+        price: addProductInputEntity.price,
+        isOrganic: addProductInputEntity.isOrganic,
+        image: addProductInputEntity.image,
+        expirationsMonths: addProductInputEntity.expirationsMonths,
+        numberOfCalories: addProductInputEntity.numberOfCalories,
+        unitAmount: addProductInputEntity.unitAmount,
+        isFeatured: addProductInputEntity.isFeatured,
+        imageUrl: addProductInputEntity.imageUrl);
   }
 
-  Map<String, dynamic> toJson() {
+  toJson() {
     return {
       'name': name,
       'code': code,
+      'sellingCount': sellingCount,
       'description': description,
       'price': price,
-      'imageUrl': imageUrl,
-      'image': image,
       'isFeatured': isFeatured,
+      'imageUrl': imageUrl,
+      'expirationsMonths': expirationsMonths,
+      'numberOfCalories': numberOfCalories,
+      'unitAmount': unitAmount,
+      'isOrganic': isOrganic,
     };
   }
 }

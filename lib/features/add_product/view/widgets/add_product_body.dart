@@ -6,7 +6,6 @@ import 'package:commerce_hub_dashboard/core/widgets/app_text_buttom.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_form_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
 import 'package:commerce_hub_dashboard/features/add_product/logic/cubit/add_product_cubit.dart';
-import 'package:commerce_hub_dashboard/features/add_product/view/widgets/add_porducte_bloc.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/custom_app_bar.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/is_featured_check_box.dart';
@@ -160,24 +159,8 @@ class _AddProductBodyState extends State<AddProductBody> {
                   const SizedBox(height: 30),
                   AppTextButton(
                     buttonText: 'Add Product',
-                    onPressed: () async {
-                      if (image != null) {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          AddProductInput input = AddProductInput(
-                            image: image!,
-                            isFeatured: isFeatured,
-                            code: code,
-                            name: name,
-                            description: description,
-                            price: price.toDouble(),
-                            imageUrl: '',
-                          );
-                          context.read<AddProductCubit>().addproduct(input);
-                        }
-                      } else {
-                        showError(context);
-                      }
+                    onPressed: ()  {
+                      addProductmethod(context);
                     },
                     textStyle: Styles.textbuttom16White,
                   ),
@@ -189,6 +172,30 @@ class _AddProductBodyState extends State<AddProductBody> {
         ),
       ),
     );
+  }
+
+  void addProductmethod(BuildContext context) {
+     if (image != null) {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        AddProductInput input = AddProductInput(
+          image: image!,
+          isFeatured: isFeatured,
+          code: code,
+          name: name,
+          description: description,
+          price: price.toDouble(),
+          imageUrl: '',
+          expirationsMonths: expirationMonths.toInt(),
+          numberOfCalories: numberOfCalories.toInt(),
+          unitAmount: unitAmount.toInt(),
+          isOrganic: isOrganic,
+        );
+        context.read<AddProductCubit>().addproduct(input);
+      }
+    } else {
+      showError(context);
+    }
   }
 
   void showError(BuildContext context) {

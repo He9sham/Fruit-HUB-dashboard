@@ -5,5 +5,5 @@ import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_
 import 'package:dartz/dartz.dart';
 
 abstract class ProductRepo {
-  Future<Either<Failure , String>> addProduct(AddProductInput addProductInput);
+  Future<Either<Failure , void>> addProduct(AddProductInput addProductInput);
 }
