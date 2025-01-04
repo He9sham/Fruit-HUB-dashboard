@@ -1,4 +1,3 @@
-
 import 'package:commerce_hub_dashboard/core/theming/colors.dart';
 import 'package:commerce_hub_dashboard/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -33,13 +32,14 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     required this.validator,
     this.keyboardType,
-    this.prefixIcon, this.onSaved,
+    this.prefixIcon,
+    this.onSaved,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onSaved:onSaved ,
+      onSaved: onSaved,
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       decoration: InputDecoration(

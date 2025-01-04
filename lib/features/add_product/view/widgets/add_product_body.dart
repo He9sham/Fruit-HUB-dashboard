@@ -9,6 +9,7 @@ import 'package:commerce_hub_dashboard/features/add_product/logic/cubit/add_prod
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/custom_app_bar.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/is_featured_check_box.dart';
+import 'package:commerce_hub_dashboard/features/add_product/view/widgets/is_organic_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -151,6 +152,12 @@ class _AddProductBodyState extends State<AddProductBody> {
                     },
                   ),
                   const SizedBox(height: 20),
+                  IsOrganciCheckBox(
+                    onChanged: (value) {
+                      isFeatured = value;
+                    },
+                  ),
+                  const SizedBox(height: 20),
                   ImageField(
                     onImageSelected: (value) {
                       image = value;
@@ -159,7 +166,7 @@ class _AddProductBodyState extends State<AddProductBody> {
                   const SizedBox(height: 30),
                   AppTextButton(
                     buttonText: 'Add Product',
-                    onPressed: ()  {
+                    onPressed: () {
                       addProductmethod(context);
                     },
                     textStyle: Styles.textbuttom16White,
@@ -175,7 +182,7 @@ class _AddProductBodyState extends State<AddProductBody> {
   }
 
   void addProductmethod(BuildContext context) {
-     if (image != null) {
+    if (image != null) {
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
         AddProductInput input = AddProductInput(
