@@ -39,7 +39,9 @@ class SupabaseStorageService implements StoarageService {
     final String publicUrl = _supabase.client.storage
         .from('fruits_hub')
         .getPublicUrl('$path/$filename.$extentionName');
-
     return result;
+
+   // return publicUrl; if u need a get image url and upload image by hesham
+
   }
 }
