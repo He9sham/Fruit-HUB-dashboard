@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:commerce_hub_dashboard/features/add_product/data/models/review_models.dart';
 import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
 
 class ProductModel {
@@ -17,10 +18,11 @@ class ProductModel {
   final num ratingCount = 0;
   final int unitAmount;
   final int sellingCount;
-
+  final List<ReviewModels> reviews;
   ProductModel(
       {required this.name,
       required this.code,
+      required this.reviews,
       required this.description,
       required this.expirationsMonths,
       required this.numberOfCalories,
@@ -34,6 +36,9 @@ class ProductModel {
 
   factory ProductModel.fromEntity(AddProductInput addProductInputEntity) {
     return ProductModel(
+        reviews: addProductInputEntity.reviews
+            .map((e) => ReviewModels.fromEntity(e))
+            .toList(),
         name: addProductInputEntity.name,
         code: addProductInputEntity.code,
         description: addProductInputEntity.description,
@@ -60,6 +65,9 @@ class ProductModel {
       'numberOfCalories': numberOfCalories,
       'unitAmount': unitAmount,
       'isOrganic': isOrganic,
+      'avgRating': avgRating,
+      'ratingCount': ratingCount,
+      'reviews': reviews.map((e) => e.toJson()).toList(),
     };
   }
 }

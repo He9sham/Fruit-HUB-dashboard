@@ -5,6 +5,7 @@ import 'package:commerce_hub_dashboard/core/theming/styles.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_buttom.dart';
 import 'package:commerce_hub_dashboard/core/widgets/app_text_form_field.dart';
 import 'package:commerce_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:commerce_hub_dashboard/features/add_product/domain/entities/review_entity.dart';
 import 'package:commerce_hub_dashboard/features/add_product/logic/cubit/add_product_cubit.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/custom_app_bar.dart';
 import 'package:commerce_hub_dashboard/features/add_product/view/widgets/image_field.dart';
@@ -197,6 +198,16 @@ class _AddProductBodyState extends State<AddProductBody> {
           numberOfCalories: numberOfCalories.toInt(),
           unitAmount: unitAmount.toInt(),
           isOrganic: isOrganic,
+          reviews: [
+            ReviewEntity(
+              name: 'hesham',
+              image:
+                  '',
+              ratting: 5,
+              date: DateTime.now().toIso8601String(),
+              reviewDescription: 'Nice product',
+            ),
+          ],
         );
         context.read<AddProductCubit>().addproduct(input);
       }
