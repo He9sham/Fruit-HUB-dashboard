@@ -39,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "395468957968-itptt6jnol2s3t3vr0f0v0b3tmehsldk.apps.googleusercontent.com",
+              "client_id": "395468957968-hcf7csauni5p7i92abp501jtr8rch595.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.commerceHub"
+                "bundle_id": "com.example.commerceHubDashboard"
               }
             }
           ]
@@ -75,10 +75,10 @@
               "client_type": 3
             },
             {
-              "client_id": "395468957968-itptt6jnol2s3t3vr0f0v0b3tmehsldk.apps.googleusercontent.com",
+              "client_id": "395468957968-hcf7csauni5p7i92abp501jtr8rch595.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.commerceHub"
+                "bundle_id": "com.example.commerceHubDashboard"
               }
             }
           ]
