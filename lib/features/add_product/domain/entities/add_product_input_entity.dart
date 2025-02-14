@@ -27,7 +27,7 @@ class AddProductInput {
       required this.expirationsMonths,
       required this.numberOfCalories,
       required this.unitAmount,
-      this.isOrganic = false,
+      required this.isOrganic,
       required this.image,
       required this.isFeatured,
       this.imageUrl});

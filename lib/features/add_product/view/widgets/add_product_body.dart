@@ -155,7 +155,7 @@ class _AddProductBodyState extends State<AddProductBody> {
                   const SizedBox(height: 20),
                   IsOrganciCheckBox(
                     onChanged: (value) {
-                      isFeatured = value;
+                      isOrganic = value;
                     },
                   ),
                   const SizedBox(height: 20),
@@ -201,10 +201,9 @@ class _AddProductBodyState extends State<AddProductBody> {
           reviews: [
             ReviewEntity(
               name: 'hesham',
-              image:
-                  '',
+              image: '',
               ratting: 5,
-              date: DateTime.now().toIso8601String(),
+              date: DateTime.now().toString(),
               reviewDescription: 'Nice product',
             ),
           ],
