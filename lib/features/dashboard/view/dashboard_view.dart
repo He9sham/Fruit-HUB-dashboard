@@ -20,6 +20,16 @@ class DashboardView extends StatelessWidget {
               },
               textStyle: Styles.textbuttom16White,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            AppTextButton(
+              buttonText: 'View Order',
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.order);
+              },
+              textStyle: Styles.textbuttom16White,
+            ),
           ],
         ),
       ),
