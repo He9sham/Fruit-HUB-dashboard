@@ -1,5 +1,7 @@
 import 'package:commerce_hub_dashboard/core/repos/images_repo/image_repo.dart';
 import 'package:commerce_hub_dashboard/core/repos/images_repo/image_repo_impl.dart';
+import 'package:commerce_hub_dashboard/core/repos/order_repo/order_repo.dart';
+import 'package:commerce_hub_dashboard/core/repos/order_repo/order_repo_impl.dart';
 import 'package:commerce_hub_dashboard/core/repos/product_repo/product_repo.dart';
 import 'package:commerce_hub_dashboard/core/repos/product_repo/product_repo_impl.dart';
 import 'package:commerce_hub_dashboard/core/services/database_service.dart';
@@ -21,6 +23,12 @@ void setupGetit() {
   // Register ProductRepo with DatabaseService
   getIt.registerSingleton<ProductRepo>(
     ProductRepoImpl(
+      getIt.get<DatabaseService>(),
+    ),
+  );
+  // Register OrderRepo with DatabaseService
+  getIt.registerSingleton<OrderRepo>(
+    OrderRepoImpl(
       getIt.get<DatabaseService>(),
     ),
   );

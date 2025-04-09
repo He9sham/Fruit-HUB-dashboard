@@ -1,4 +1,4 @@
-import 'package:commerce_hub_dashboard/features/order/data/models/order_models.dart';
+import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
 import 'package:flutter/material.dart';
 
 class OrderItemListView extends StatelessWidget {
