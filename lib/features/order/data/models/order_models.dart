@@ -1,29 +1,29 @@
 import 'package:commerce_hub_dashboard/features/order/data/models/order_product_model_.dart';
 import 'package:commerce_hub_dashboard/features/order/data/models/shipping_model.dart';
 
-class OrderEntity {
+class OrderModels {
   final double totalPrice;
   final String uId;
-  final ShippingAddresEntity shippingAddressModel;
-  final List<OrderProducteEntity> orderProductModel;
+  final ShippingAddresModel shippingAddressModel;
+  final List<OrderProducteModel> orderProductModel;
   final String paymentMethod;
 
-  OrderEntity(
+  OrderModels(
       {required this.totalPrice,
       required this.uId,
       required this.paymentMethod,
       required this.shippingAddressModel,
       required this.orderProductModel});
 
-  factory OrderEntity.fromJson(Map<String, dynamic> json) {
-    return OrderEntity(
+  factory OrderModels.fromJson(Map<String, dynamic> json) {
+    return OrderModels(
       totalPrice: (json['totalPrice'] as num).toDouble(),
       uId: json['uId'] as String,
       paymentMethod: json['paymentMethod'] as String,
       shippingAddressModel:
-          ShippingAddresEntity.fromJson(json['shippingAddressModel']),
+          ShippingAddresModel.fromJson(json['shippingAddressModel']),
       orderProductModel: (json['orderProductModel'] as List)
-          .map((e) => OrderProducteEntity.fromJson(e))
+          .map((e) => OrderProducteModel.fromJson(e))
           .toList(),
     );
   }

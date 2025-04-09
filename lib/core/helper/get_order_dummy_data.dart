@@ -1,6 +1,6 @@
-import 'package:commerce_hub_dashboard/features/order/data/models/order_models.dart';
-import 'package:commerce_hub_dashboard/features/order/data/models/order_product_model_.dart';
-import 'package:commerce_hub_dashboard/features/order/data/models/shipping_model.dart';
+import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
+import 'package:commerce_hub_dashboard/features/order/domain/entity/order_product_entity.dart';
+import 'package:commerce_hub_dashboard/features/order/domain/entity/shipping_entity.dart';
 
 OrderEntity getDummyOrder() {
   // Create a sample shipping address
@@ -14,8 +14,8 @@ OrderEntity getDummyOrder() {
   );
 
   // Create a sample list of order products
-  List<OrderProducteEntity> orderProducts = [
-    OrderProducteEntity(
+  List<OrderProductEntity> orderProducts = [
+    OrderProductEntity(
       name: 'Product A',
       code: 'A123',
       imageUrl:
@@ -23,7 +23,7 @@ OrderEntity getDummyOrder() {
       price: 49.99,
       quantity: 2,
     ),
-    OrderProducteEntity(
+    OrderProductEntity(
       name: 'Product B',
       code: 'B456',
       imageUrl:
@@ -31,7 +31,7 @@ OrderEntity getDummyOrder() {
       price: 29.99,
       quantity: 1,
     ),
-    OrderProducteEntity(
+    OrderProductEntity(
       name: 'Product C',
       code: 'C789',
       imageUrl:
@@ -49,12 +49,14 @@ OrderEntity getDummyOrder() {
 
   // Create and return the OrderModel
   return OrderEntity(
-    orderProductModel: orderProducts,
+    orderProductEntity: orderProducts,
+
     // orderID: '12345',
     totalPrice: totalPrice,
     // status: OrderStatusEnum.pending,
     uId: 'user123',
-    shippingAddressModel: shippingAddress,
+    shippingAddressEntity: shippingAddress,
+
     // orderProducts: orderProducts,
     paymentMethod: 'Cash',
   );

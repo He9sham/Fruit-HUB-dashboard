@@ -1,4 +1,4 @@
-class ShippingAddresEntity {
+class ShippingAddresModel {
   String? name;
   String? address;
   String? city;
@@ -7,7 +7,7 @@ class ShippingAddresEntity {
   String? post;
   String? floor;
 
-  ShippingAddresEntity(
+  ShippingAddresModel(
       {this.name,
       this.address,
       this.city,
@@ -16,8 +16,8 @@ class ShippingAddresEntity {
       this.post,
       this.floor});
 
-  factory ShippingAddresEntity.fromJson(Map<String, dynamic> json) {
-    return ShippingAddresEntity(
+  factory ShippingAddresModel.fromJson(Map<String, dynamic> json) {
+    return ShippingAddresModel(
       name: json['name'] as String?,
       address: json['address'] as String?,
       city: json['city'] as String?,
