@@ -1,4 +1,4 @@
-class ShippingAddresModel {
+class ShippingAddresEntity {
   String? name;
   String? address;
   String? city;
@@ -7,7 +7,7 @@ class ShippingAddresModel {
   String? post;
   String? floor;
 
-  ShippingAddresModel(
+  ShippingAddresEntity(
       {this.name,
       this.address,
       this.city,
@@ -16,8 +16,8 @@ class ShippingAddresModel {
       this.post,
       this.floor});
 
-  factory ShippingAddresModel.fromJson(Map<String, dynamic> json) {
-    return ShippingAddresModel(
+  factory ShippingAddresEntity.fromJson(Map<String, dynamic> json) {
+    return ShippingAddresEntity(
       name: json['name'] as String?,
       address: json['address'] as String?,
       city: json['city'] as String?,
@@ -42,5 +42,17 @@ class ShippingAddresModel {
   @override
   String toString() {
     return '$address $city $floor';
+  }
+
+  toEntity() {
+    return {
+      'name': name,
+      'address': address,
+      'city': city,
+      'email': email,
+      'phone': phone,
+      'post': post,
+      'floor': floor,
+    };
   }
 }

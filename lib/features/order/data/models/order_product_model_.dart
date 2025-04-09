@@ -1,13 +1,11 @@
-
-
-class OrderProductModel {
+class OrderProducteEntity {
   final String code;
   final String name;
   final String imageUrl;
   final double price;
   final int quantity;
 
-  OrderProductModel({
+  OrderProducteEntity({
     required this.code,
     required this.name,
     required this.imageUrl,
@@ -15,8 +13,8 @@ class OrderProductModel {
     required this.quantity,
   });
 
-  factory OrderProductModel.fromJson(Map<String, dynamic> json) {
-    return OrderProductModel(
+  factory OrderProducteEntity.fromJson(Map<String, dynamic> json) {
+    return OrderProducteEntity(
       code: json['id'] as String,
       name: json['name'] as String,
       imageUrl: json['imageUrl'] as String,
@@ -24,8 +22,18 @@ class OrderProductModel {
       quantity: json['quantity'] as int,
     );
   }
- 
+
   toJson() {
+    return {
+      'code': code,
+      'name': name,
+      'imageUrl': imageUrl,
+      'price': price,
+      'quantity': quantity,
+    };
+  }
+
+  toEntity() {
     return {
       'code': code,
       'name': name,

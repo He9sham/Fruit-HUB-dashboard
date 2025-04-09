@@ -1,11 +1,10 @@
-
 import 'package:commerce_hub_dashboard/features/order/data/models/order_models.dart';
 import 'package:commerce_hub_dashboard/features/order/data/models/order_product_model_.dart';
 import 'package:commerce_hub_dashboard/features/order/data/models/shipping_model.dart';
 
-OrderModels getDummyOrder() {
+OrderEntity getDummyOrder() {
   // Create a sample shipping address
-  ShippingAddresModel shippingAddress = ShippingAddresModel(
+  ShippingAddresEntity shippingAddress = ShippingAddresEntity(
     name: 'John Doe',
     phone: '123-456-7890',
     address: '123 Main St',
@@ -15,8 +14,8 @@ OrderModels getDummyOrder() {
   );
 
   // Create a sample list of order products
-  List<OrderProductModel> orderProducts = [
-    OrderProductModel(
+  List<OrderProducteEntity> orderProducts = [
+    OrderProducteEntity(
       name: 'Product A',
       code: 'A123',
       imageUrl:
@@ -24,7 +23,7 @@ OrderModels getDummyOrder() {
       price: 49.99,
       quantity: 2,
     ),
-    OrderProductModel(
+    OrderProducteEntity(
       name: 'Product B',
       code: 'B456',
       imageUrl:
@@ -32,7 +31,7 @@ OrderModels getDummyOrder() {
       price: 29.99,
       quantity: 1,
     ),
-    OrderProductModel(
+    OrderProducteEntity(
       name: 'Product C',
       code: 'C789',
       imageUrl:
@@ -49,7 +48,7 @@ OrderModels getDummyOrder() {
   );
 
   // Create and return the OrderModel
-  return OrderModels(
+  return OrderEntity(
     orderProductModel: orderProducts,
     // orderID: '12345',
     totalPrice: totalPrice,
