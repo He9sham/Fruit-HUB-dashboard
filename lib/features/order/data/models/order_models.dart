@@ -17,15 +17,16 @@ class OrderModels {
 
   factory OrderModels.fromJson(Map<String, dynamic> json) {
     return OrderModels(
-      totalPrice: (json['totalPrice'] as num).toDouble(),
-      uId: json['uId'] as String,
-      paymentMethod: json['paymentMethod'] as String,
-      shippingAddressModel:
-          ShippingAddresModel.fromJson(json['shippingAddressModel']),
-      orderProductModel: (json['orderProductModel'] as List)
-          .map((e) => OrderProducteModel.fromJson(e))
-          .toList(),
-    );
+        totalPrice: (json['totalPrice'] as num).toDouble(),
+        uId: json['uId'] as String,
+        paymentMethod: json['paymentMethod'] as String,
+        shippingAddressModel:
+            ShippingAddresModel.fromJson(json['shippingAddressModel']),
+        orderProductModel: List<OrderProducteModel>.from(
+          json['orderProductModel']
+              .map((e) => OrderProducteModel.fromJson(e))
+              .toList(),
+        ));
   }
 
   toJson() {

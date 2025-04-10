@@ -15,11 +15,10 @@ class OrderRepoImpl implements OrderRepo {
     try {
       final respose = await databaseService.getData(
         path: 'orders',
-
       );
       List<OrderEntity> order = (respose as List<dynamic>)
-          .map((e) => OrderModels.fromJson(e).toEntity())
-          .toList() as List<OrderEntity>;
+          .map<OrderEntity>((e) => OrderModels.fromJson(e).toEntity())
+          .toList() ;
       return Right(order);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
