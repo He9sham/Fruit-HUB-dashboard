@@ -34,7 +34,7 @@ class _FetchOrderBlocBuilderState extends State<FetchOrderBlocBuilder> {
         } else {
           return Skeletonizer(
             child: OrderViewBody(
-              orders: [
+              orders:  [
                 getDummyOrder(),
                 getDummyOrder(),
                 getDummyOrder(),

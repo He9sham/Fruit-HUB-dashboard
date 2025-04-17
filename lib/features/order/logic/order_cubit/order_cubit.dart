@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:commerce_hub_dashboard/core/repos/order_repo/order_repo.dart';
 import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
@@ -9,17 +11,17 @@ class OrderCubit extends Cubit<OrderState> {
   OrderCubit(this.orderRepo) : super(OrderInitial());
 
   final OrderRepo orderRepo;
-
+  StreamSubscription? streamSubscription;
   Future<void> fetchOrders() async {
     emit(OrderLoading());
-    final result = await orderRepo.fetchOrders();
-    result.fold(
-      (failure) => emit(OrderFaluire(
-        errmessage: failure.message,
-      )),
-      (orders) => emit(OrderSuccess(
-        orderEntity: orders,
-      )),
-    );
+     streamSubscription = orderRepo.fetchOrders().listen((result) {
+      result.fold((f) {
+        emit(OrderFaluire(errmessage: f.message));
+      }, (r) {
+        emit(OrderSuccess(
+          orderEntity: r,
+        ));
+      });
+    });
   }
 }
