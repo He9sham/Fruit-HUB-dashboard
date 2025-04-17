@@ -41,7 +41,6 @@ class SupabaseStorageService implements StoarageService {
         .getPublicUrl('$path/$filename.$extentionName');
     return publicUrl;
 
-   // return publicUrl; if u need a get image url and upload image by hesham
-
+    // return publicUrl; if u need a get image url and upload image by hesham
   }
 }

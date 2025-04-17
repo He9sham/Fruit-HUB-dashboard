@@ -6,7 +6,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 class ImageField extends StatefulWidget {
   const ImageField({super.key, required this.onImageSelected});
-  final ValueChanged<File?> onImageSelected;
+  final ValueChanged<dynamic> onImageSelected;
   @override
   State<ImageField> createState() => _ImageFieldState();
 }
