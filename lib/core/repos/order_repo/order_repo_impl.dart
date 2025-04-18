@@ -17,7 +17,8 @@ class OrderRepoImpl implements OrderRepo {
         path: 'orders',
       );
       List<OrderEntity> order = (respose as List)
-          .map((e) => OrderModels.fromJson(e as Map<String, dynamic>).toEntity())
+          .map<OrderEntity>(
+              (e) => OrderModels.fromJson(e as Map<String, dynamic>).toEntity())
           .toList()
           .cast<OrderEntity>();
       yield Right(order);

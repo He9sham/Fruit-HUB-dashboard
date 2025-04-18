@@ -1,5 +1,6 @@
 import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
 import 'package:commerce_hub_dashboard/features/order/view/widget/filter_section.dart';
+import 'package:commerce_hub_dashboard/features/order/view/widget/order_item_list_view.dart';
 import 'package:flutter/material.dart';
 
 class OrderViewBody extends StatelessWidget {
@@ -12,7 +13,11 @@ class OrderViewBody extends StatelessWidget {
       child: Column(
         children: [
           FilterSection(),
-          
+          Expanded(
+            child: OrderItemListView(
+              orderEntity: orders,
+            ),
+          ),
         ],
       ),
     );

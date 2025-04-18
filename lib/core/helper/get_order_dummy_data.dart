@@ -1,3 +1,4 @@
+import 'package:commerce_hub_dashboard/core/enums/order_enum.dart';
 import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
 import 'package:commerce_hub_dashboard/features/order/domain/entity/order_product_entity.dart';
 import 'package:commerce_hub_dashboard/features/order/domain/entity/shipping_entity.dart';
@@ -49,6 +50,8 @@ OrderEntity getDummyOrder() {
 
   // Create and return the OrderModel
   return OrderEntity(
+    orderId: '12345',
+    status: OrderStatusEnum.pending,
     orderProductEntity: orderProducts,
 
     // orderID: '12345',

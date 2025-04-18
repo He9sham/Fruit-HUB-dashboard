@@ -7,16 +7,22 @@ class OrderModels {
   final ShippingAddresModel shippingAddressModel;
   final List<OrderProducteModel> orderProductModel;
   final String paymentMethod;
+  final String? status;
+  final String orderId;
 
   OrderModels(
       {required this.totalPrice,
       required this.uId,
+      required this.status,
+      required this.orderId,
       required this.paymentMethod,
       required this.shippingAddressModel,
       required this.orderProductModel});
 
   factory OrderModels.fromJson(Map<String, dynamic> json) {
     return OrderModels(
+        orderId: json['orderId'] as String,
+        status: json['status'] as String,
         totalPrice: (json['totalPrice'] as num).toDouble(),
         uId: json['uId'] as String,
         paymentMethod: json['paymentMethod'] as String,
@@ -33,6 +39,7 @@ class OrderModels {
     return {
       'paymentMethod': paymentMethod,
       'totalPrice': totalPrice,
+      'orderId': orderId,
       'uId': uId,
       'status': 'pending',
       'date': DateTime.now().toString(),
