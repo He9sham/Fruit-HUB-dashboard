@@ -7,7 +7,7 @@ class OrderModels {
   final ShippingAddresModel shippingAddressModel;
   final List<OrderProducteModel> orderProductModel;
   final String paymentMethod;
-  final String? status;
+  final String? status; // this is new parameter
   final String orderId;
 
   OrderModels(
