@@ -16,9 +16,10 @@ class OrderRepoImpl implements OrderRepo {
       final respose = await databaseService.getData(
         path: 'orders',
       );
-      List<OrderEntity> order = (respose as List<dynamic>)
-          .map<OrderEntity>((e) => OrderModels.fromJson(e).toEntity())
-          .toList();
+      List<OrderEntity> order = (respose as List)
+          .map((e) => OrderModels.fromJson(e as Map<String, dynamic>).toEntity())
+          .toList()
+          .cast<OrderEntity>();
       yield Right(order);
     } catch (e) {
       yield Left(ServerFailure(e.toString()));
