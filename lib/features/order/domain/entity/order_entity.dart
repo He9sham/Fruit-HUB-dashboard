@@ -9,13 +9,13 @@ class OrderEntity {
   final List<OrderProductEntity> orderProductEntity;
   final String paymentMethod;
   final OrderStatusEnum status;
-  final String orderId;
+  // final String orderId;
   OrderEntity({
     required this.totalPrice,
     required this.uId,
     required this.paymentMethod,
     required this.status,
-    required this.orderId,
+    // required this.orderId,
     required this.shippingAddressEntity,
     required this.orderProductEntity,
   });

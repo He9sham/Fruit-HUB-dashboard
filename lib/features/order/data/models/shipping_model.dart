@@ -1,3 +1,5 @@
+import 'package:commerce_hub_dashboard/features/order/domain/entity/shipping_entity.dart';
+
 class ShippingAddresModel {
   String? name;
   String? address;
@@ -44,15 +46,15 @@ class ShippingAddresModel {
     return '$address $city $floor';
   }
 
-  toEntity() {
-    return {
-      'name': name,
-      'address': address,
-      'city': city,
-      'email': email,
-      'phone': phone,
-      'post': post,
-      'floor': floor,
-    };
+  ShippingAddresEntity toEntity() {
+    return ShippingAddresEntity(
+      name: name,
+      address: address,
+      city: city,
+      email: email,
+      phone: phone,
+      post: post,
+      floor: floor,
+    );
   }
 }

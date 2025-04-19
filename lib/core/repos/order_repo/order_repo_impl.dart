@@ -13,14 +13,13 @@ class OrderRepoImpl implements OrderRepo {
   @override
   Stream<Either<Failure, List<OrderEntity>>> fetchOrders() async* {
     try {
-      final respose = await databaseService.getData(
+      final response = await databaseService.getData(
         path: 'orders',
       );
-      List<OrderEntity> order = (respose as List)
+      List<OrderEntity> order = (response as List<dynamic>)
           .map<OrderEntity>(
-              (e) => OrderModels.fromJson(e as Map<String, dynamic>).toEntity())
-          .toList()
-          .cast<OrderEntity>();
+              (e) => OrderModels.fromJson(Map<String, dynamic>.from(e)).toEntity())
+          .toList();
       yield Right(order);
     } catch (e) {
       yield Left(ServerFailure(e.toString()));

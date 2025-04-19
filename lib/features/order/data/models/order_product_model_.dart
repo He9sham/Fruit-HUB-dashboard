@@ -1,3 +1,5 @@
+import 'package:commerce_hub_dashboard/features/order/domain/entity/order_product_entity.dart';
+
 class OrderProducteModel {
   final String code;
   final String name;
@@ -33,13 +35,13 @@ class OrderProducteModel {
     };
   }
 
-  toEntity() {
-    return {
-      'code': code,
-      'name': name,
-      'imageUrl': imageUrl,
-      'price': price,
-      'quantity': quantity,
-    };
+  OrderProductEntity toEntity() {
+    return OrderProductEntity(
+      code: code,
+      name: name,
+      imageUrl: imageUrl,
+      price: price,
+      quantity: quantity,
+    );
   }
 }

@@ -50,17 +50,11 @@ OrderEntity getDummyOrder() {
 
   // Create and return the OrderModel
   return OrderEntity(
-    orderId: '12345',
     status: OrderStatusEnum.pending,
     orderProductEntity: orderProducts,
-
-    // orderID: '12345',
     totalPrice: totalPrice,
-    // status: OrderStatusEnum.pending,
     uId: 'user123',
     shippingAddressEntity: shippingAddress,
-
-    // orderProducts: orderProducts,
     paymentMethod: 'Cash',
   );
 }

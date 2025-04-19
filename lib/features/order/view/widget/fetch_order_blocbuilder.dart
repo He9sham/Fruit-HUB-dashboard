@@ -22,12 +22,6 @@ class _FetchOrderBlocBuilderState extends State<FetchOrderBlocBuilder> {
   }
 
   @override
-  void dispose() {
-    context.read<OrderCubit>().close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<OrderCubit, OrderState>(
       builder: (context, state) {
