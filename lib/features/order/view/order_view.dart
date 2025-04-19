@@ -11,10 +11,18 @@ class OrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => OrderCubit(getIt.get<OrderRepo>()),
+      create: (context) => OrderCubit(
+        getIt.get<OrderRepo>(),
+      ),
       child: Scaffold(
         appBar: buildAppBar(title: 'Order view'),
-        body: FetchOrderBlocBuilder(),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            context.read<OrderCubit>().fetchOrders();
+            Future.delayed(const Duration(seconds: 2));
+          },
+          child: FetchOrderBlocBuilder(),
+        ),
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:commerce_hub_dashboard/core/enums/order_enum.dart';
 import 'package:commerce_hub_dashboard/features/order/domain/entity/order_entity.dart';
+import 'package:commerce_hub_dashboard/features/order/view/widget/order_action_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class OrderItemWidget extends StatelessWidget {
   final OrderEntity orderEntity;
@@ -93,10 +95,11 @@ class OrderItemWidget extends StatelessWidget {
                 return ListTile(
                   leading: CachedNetworkImage(
                     imageUrl: product.imageUrl,
-                    placeholder: (context, url) => const SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: CircularProgressIndicator()),
+                    placeholder: (context, url) => Skeletonizer(
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey,
+                      ),
+                    ),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
@@ -114,7 +117,7 @@ class OrderItemWidget extends StatelessWidget {
             ),
 
             const SizedBox(height: 16),
-            // OrderActionButtons(orderEntity: orderEntity),
+            OrderActionButtons(orderEntity: orderEntity),
           ],
         ),
       ),
