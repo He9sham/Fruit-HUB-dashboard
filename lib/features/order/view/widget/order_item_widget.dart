@@ -56,7 +56,7 @@ class OrderItemWidget extends StatelessWidget {
 
             // User ID
             Text(
-              'User ID: ${orderEntity.uId}',
+              'User Name: ${orderEntity.shippingAddressEntity.name}',
               style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
             const SizedBox(height: 8),
