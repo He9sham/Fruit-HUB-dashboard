@@ -10,20 +10,20 @@ class OrderModels {
   final List<OrderProducteModel> orderProductModel;
   final String paymentMethod;
   final String status; // this is new parameter
-  // final String orderId;
+  final String orderId;
 
   OrderModels(
       {required this.totalPrice,
       required this.uId,
       required this.status,
-      // required this.orderId,
+      required this.orderId,
       required this.paymentMethod,
       required this.shippingAddressModel,
       required this.orderProductModel});
 
   factory OrderModels.fromJson(Map<String, dynamic> json) {
     return OrderModels(
-        // orderId: json['orderId'] as String,
+        orderId: json['orderId'] as String,
         status: json['status'],
         totalPrice: (json['totalPrice']),
         uId: json['uId'],
@@ -41,7 +41,7 @@ class OrderModels {
     return {
       'paymentMethod': paymentMethod,
       'totalPrice': totalPrice,
-      // 'orderId': orderId,
+      'orderId': orderId,
       'uId': uId,
       'status': 'pending',
       'date': DateTime.now().toString(),
@@ -71,6 +71,7 @@ class OrderModels {
     }
 
     return OrderEntity(
+      orderId: orderId,
       paymentMethod: paymentMethod,
       totalPrice: totalPrice,
       uId: uId,
