@@ -9,7 +9,6 @@ class OrderItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: orderEntity.length,
-      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return OrderItemWidget(
           orderEntity: orderEntity[index],

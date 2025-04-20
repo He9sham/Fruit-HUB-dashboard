@@ -27,14 +27,8 @@ class OrderView extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: buildAppBar(title: 'Order view'),
-        body: RefreshIndicator(
-          onRefresh: () async {
-            context.read<OrderCubit>().fetchOrders();
-            Future.delayed(const Duration(seconds: 2));
-          },
-          child: UpdateOrderBuilder(
-            child: FetchOrderBlocBuilder(),
-          ),
+        body: UpdateOrderBuilder(
+          child: FetchOrderBlocBuilder(),
         ),
       ),
     );
