@@ -5,11 +5,3 @@ import 'package:dartz/dartz.dart';
 abstract class OrderRepo {
   Stream<Either<Failure, List<OrderEntity>>> fetchOrders();
 }
-
-
-
-
-// order -> userUid 
-// order -> orderId
-// order -> productId
-// order -> shippingAddress

@@ -8,6 +8,10 @@ abstract class DatabaseService {
     Map<String, dynamic> query,
     required String path,
   });
+  Stream<dynamic> fetchStreamData({
+    Map<String, dynamic> query,
+    required String path,
+  });
 
   Future<bool> checkIfDataExists(
       {required String path, required String docuementId});

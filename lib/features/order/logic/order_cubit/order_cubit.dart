@@ -14,7 +14,7 @@ class OrderCubit extends Cubit<OrderState> {
   StreamSubscription? streamSubscription;
   Future<void> fetchOrders() async {
     emit(OrderLoading());
-     streamSubscription = orderRepo.fetchOrders().listen((result) {
+    streamSubscription = orderRepo.fetchOrders().listen((result) {
       result.fold((f) {
         emit(OrderFaluire(errmessage: f.message));
       }, (r) {
@@ -23,5 +23,11 @@ class OrderCubit extends Cubit<OrderState> {
         ));
       });
     });
+  }
+
+  @override
+  Future<void> close() {
+    streamSubscription?.cancel();
+    return super.close();
   }
 }
